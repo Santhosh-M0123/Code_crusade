@@ -1,0 +1,78 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-areas:
+        "course course";
+    /* margin: 50px;
+    width: 200px; */
+}
+
+.home .course {
+    background-color: darkcyan;
+    border: 1px solid darkcyan;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    color: white;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "img desc";
+}
+
+/* .home .course:hover {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    color: black;
+} */
+
+.home .course .img {
+    grid-area: img;
+    border: 1px solid black;
+    background-image: url('../images/coursebg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid darkcyan;
+}
+
+.home .course .desc {
+    grid-area: desc;
+}
+
+.home .course .CourseName {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.home .course .CourseDesc {
+    text-align: left;
+    margin-left: 50px;
+}
+
+.home .course .date {
+    text-align: left;
+    margin-left: 50px;
+}
+
+.home .course .link {
+    text-align: left;
+    margin-left: 50px;
+}
+
+.home .course .link a {
+    color: crimson;
+    text-decoration: none;
+}

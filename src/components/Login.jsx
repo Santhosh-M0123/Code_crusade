@@ -15,7 +15,10 @@ const Login = () => {
     const btnSignin = async (e) => {
         e.preventDefault();
 
-        let res = await axios.post("http://localhost:3001/auth/" , {
+        if(name == '' || pass == ""){
+            toast.warn("Please Enter all the field");
+        }else{
+            let res = await axios.post("http://localhost:3001/auth/" , {
             name : name,
             pass : pass
         });
@@ -23,7 +26,8 @@ const Login = () => {
         if(res.status != 200){
             toast.warn("No user found");
         }else{
-            Navigate("/home");
+            Navigateto("/home");
+        }
         }
     };
 
