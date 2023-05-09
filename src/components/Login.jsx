@@ -1,20 +1,39 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/Login.css";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import {toast ,ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [name, setName] = useState("");
     const [pass, setPass] = useState("");
 
-    const btnSignin = (e) => {
+    let Navigateto = useNavigate();
+
+    const btnSignin = async (e) => {
         e.preventDefault();
 
-        console.log(name);
-        console.log(pass);
+        let res = await axios.post("http://localhost:3001/auth/" , {
+            name : name,
+            pass : pass
+        });
+        // console.log(res.status);
+        if(res.status != 200){
+            toast.warn("No user found");
+        }else{
+            Navigate("/home");
+        }
     };
+
+    let Navigate = () => {
+        Navigateto("/register");
+    }
 
     return (
         <div className="loginContainer">
+            <ToastContainer />
             <div className="bg"></div>
 
             <div className="form">
@@ -91,7 +110,7 @@ const Login = () => {
 
                     <div class="text-center">
                         <p>
-                            Not a member? <a href="#!">Register</a>
+                            Not a member? <a href="#!" onClick={Navigate}>Register</a>
                         </p>
                     </div>
                 </form>

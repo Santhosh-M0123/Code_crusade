@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/Register.css";
+import axios from "axios";
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -11,11 +12,34 @@ const Register = () => {
     const [nextForm, setnextForm] = useState(false);
     const [preForm, setPreForm] = useState(true);
 
-    const btnRegister = (e) => {
+    const btnRegister = async (e) => {
         e.preventDefault();
 
-        console.log(name);
-        console.log(pass);
+        // const [file, setFile] = useState(null);
+
+        // const formData = new FormData();
+        // formData.append('file', file);
+        // try {
+        //     const response = await axios.post('http://localhost:3001/auth/register', formData, {
+        //       headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //       }
+        //     });
+        //     console.log(response.data);
+        //   } catch (error) {
+        //     console.log(error);
+        //   }
+        // };
+
+        let res = await axios.post("http://localhost:3001/auth/register" , {
+            name : name,
+            pass : pass,
+            pos : position,
+            com : comName,
+
+        });
+
+        console.log(res);
     };
     return (
         <div className="RegisterContainer">

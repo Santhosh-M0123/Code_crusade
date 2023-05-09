@@ -4,6 +4,6 @@ import App from './App';
 import Home from './Home/Home';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Home />
+  <App />
 );
 
