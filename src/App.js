@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Login from '../src/components/Login'
+import Register from '../src/components/Register'
 
 
 function App() {
@@ -8,7 +10,7 @@ function App() {
   return (
     <div className="App">
 
-      <h3>App</h3>
+      <Register/>
 
      
     </div>
