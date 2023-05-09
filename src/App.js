@@ -4,7 +4,7 @@ import Login from '../src/components/Login'
 import Register from '../src/components/Register'
 import {BrowserRouter as Router , Route , Routes} from "react-router-dom";
 import Home from './Home/Home';
-import Welcome from './Welcome';
+// import Welcome from './Welcome';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path='/' element={<Welcome />}/>
+          {/* <Route path='/' element={<Welcome />}/> */}
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
           <Route path='/home' element={<Home />}/>
